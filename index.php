@@ -1,7 +1,7 @@
 <?php
         declare(strict_types=1);
     //HEADER---
-        require 'Views/headerView.php';
+    require 'Views/headerView.php';
     //---
     //CONTROLLERS---
     require 'Controllers/guestBookController.php';

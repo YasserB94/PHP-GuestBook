@@ -5,7 +5,7 @@ declare(strict_types=1);
 // require '../Helpers/PostSaver.php';
 // require '../Helpers/sanitize.php';
 // //Models
-require 'Models/PostHandlers.php';
+require './Models/PostHandlers.php';
 //Views
 // require '../Views/guestbookView.php';
 // require '../Views/Components/postFormView.php';
