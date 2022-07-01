@@ -14,6 +14,7 @@ class GuestBookController
 {
     public function __construct(array $POST){
         // init($POST);
+        var_dump($POST);
     }
     private function init(array $POST){
         //Check Post Data for $POST_SUBMIT ? 
@@ -23,7 +24,21 @@ class GuestBookController
         //Render View
     }
     public function render(){
+        if(isset($_POST['newPost'])){
+            $this->renderNewPostForm();
+        }else{
+            $this->renderGuestBook();
+        }
+    }
+    private function renderGuestBook(){
         require './Views/guestbookView.php';
+        $this->renderPosts();
+    }
+    private function renderNewPostForm(){
+        require './Views/Components/postFormView.php';
+    }
+    private function renderPosts(){
+        require './Views/Components/postView.php';
     }
 }
 
