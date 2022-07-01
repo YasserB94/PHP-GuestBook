@@ -28,3 +28,12 @@
             - [] formView
     - [] Controllers
         - [] guestBookController
+
+
+Roadmap ----
+Created Basic site skeleton
+- Header
+- Footer
+- GuestBook Page
+- View to display posts
+- View to display a form to generate a new post

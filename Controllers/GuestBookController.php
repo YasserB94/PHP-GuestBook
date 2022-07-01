@@ -5,7 +5,7 @@ declare(strict_types=1);
 // require '../Helpers/PostSaver.php';
 // require '../Helpers/sanitize.php';
 // //Models
-require './Models/PostHandlers.php';
+require 'Models/PostHandlers.php';
 //Views
 // require '../Views/guestbookView.php';
 // require '../Views/Components/postFormView.php';
@@ -30,18 +30,18 @@ class GuestBookController
         }
     }
     private function renderGuestBook(){
-        require './Views/guestbookView.php';
+        require 'Views/guestbookView.php';
         $this->renderPosts();
     }
     private function renderNewPostForm(){
-        require './Views/Components/postFormView.php';
+        require 'Views/Components/postFormView.php';
     }
     private function renderPosts(){
         $loader = new PostLoader();
         if($loader->getPosts()){
             $posts = $loader->getPosts();
             foreach($posts as $post){
-                require './Views/Components/postView.php';
+                require 'Views/Components/postView.php';
             }
         }else{
             $post = new Post('Dummy','DummyTitle','No Posts have been made yet');

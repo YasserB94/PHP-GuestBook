@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
-require './Models/Post.php';
-define('PATH_TO_POSTS_JSON','./posts.json');
+require 'Models/Post.php';
+define('PATH_TO_POSTS_JSON','posts.json');
 class PostSaver{
     private array $postData;
     private Post $post;
