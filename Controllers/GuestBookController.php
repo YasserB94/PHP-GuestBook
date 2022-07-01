@@ -5,7 +5,7 @@ declare(strict_types=1);
 // require '../Helpers/PostSaver.php';
 // require '../Helpers/sanitize.php';
 // //Models
-// require '../Models/Post.php';
+require './Models/PostHandlers.php';
 //Views
 // require '../Views/guestbookView.php';
 // require '../Views/Components/postFormView.php';
@@ -13,20 +13,19 @@ declare(strict_types=1);
 class GuestBookController
 {
     public function __construct(array $POST){
-        // init($POST);
-        var_dump($POST);
+        $this->init($POST);
     }
     private function init(array $POST){
-        //Check Post Data for $POST_SUBMIT ? 
-        //Filter Post Data from $POST
-        //Sanitize Post data from $POST
-        //Load Posts from JSON
-        //Render View
+        $this->POST = $POST;
     }
     public function render(){
         if(isset($_POST['newPost'])){
             $this->renderNewPostForm();
-        }else{
+        }elseif(isset($_POST['submitPost'])){
+            $saver = new PostSaver($this->POST);
+            $this->renderGuestBook();
+        }
+        else{
             $this->renderGuestBook();
         }
     }
@@ -38,7 +37,15 @@ class GuestBookController
         require './Views/Components/postFormView.php';
     }
     private function renderPosts(){
-        require './Views/Components/postView.php';
+        $loader = new PostLoader();
+        if($loader->getPosts()){
+            $posts = $loader->getPosts();
+            foreach($posts as $post){
+                require './Views/Components/postView.php';
+            }
+        }else{
+            $post = new Post('Dummy','DummyTitle','No Posts have been made yet');
+        }
     }
 }
 
