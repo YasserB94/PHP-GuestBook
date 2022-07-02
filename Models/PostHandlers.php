@@ -23,9 +23,12 @@ class PostSaver{
                 }
             }
         }
+        
     }
+    
     private function createPostFromData(){
-        $this->post = new Post($this->postData['name'],$this->postData['jobtitle'],$this->postData['message']);
+        $date = new Date("l jS \of F Y h:i:s A");
+        $this->post = new Post($this->postData['name'],$this->postData['jobtitle'],$this->postData['message'],$date);
     }
     private function savePostToFile(){
         $jsonData = file_get_contents(PATH_TO_POSTS_JSON);
@@ -50,7 +53,9 @@ class PostLoader{
     }
     private function getData():array{
         $jsonData = file_get_contents(PATH_TO_POSTS_JSON);
+
         $data = json_decode($jsonData);
+        //Do not complain about the next 3 lines or I will find you
         if(!$data){
             return [];
         }
@@ -61,14 +66,13 @@ class PostLoader{
             $name = $value->name;
             $title = $value->jobtitle;
             $message = $value->message;
-            $tempPost = new Post($name,$title,$message);
+            $date = $value->date;
+            $tempPost = new Post($name,$title,$message,$date);
             array_push($this->posts,$tempPost);
-            
         }
     }
     public function getPosts(){
         return $this->posts;
     }
 }
-
 ?>

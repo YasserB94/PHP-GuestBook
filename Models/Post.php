@@ -3,10 +3,12 @@
 
 Class Post implements JsonSerializable{
     private string $name,$jobtitle,$message;
-    function __construct(string $name,string $title,string $message){
+    private Date $date;
+    function __construct(string $name,string $title,string $message,Date $creationDate){
         $this->name = $name;
         $this->jobtitle = $title;
         $this->message = $message;
+        $this->date = $date;
     }
     public function getName():string{
         return $this->name;
@@ -17,12 +19,17 @@ Class Post implements JsonSerializable{
     public function getMessage():string{
         return $this->message;
     }
+    public function getDate():Date{
+        return $this->date;
+    }
     public function jsonSerialize():array{
         return [
             'name' => $this->getName(),
             'jobtitle'=> $this->getTitle(),
-            'message'=>$this->getMessage()
+            'message'=>$this->getMessage(),
+            'date' => $this->getDate()
         ];
     }
+
 }
 ?>
