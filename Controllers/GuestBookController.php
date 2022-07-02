@@ -45,6 +45,7 @@ class GuestBookController
             }
         }else{
             $post = new Post('Dummy','DummyTitle','No Posts have been made yet');
+            require 'Views/Components/postView.php';
         }
     }
 }
