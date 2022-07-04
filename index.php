@@ -4,7 +4,7 @@
     require 'Views/headerView.php';
     //---
     //CONTROLLERS---
-    require 'Controllers/guestBookController.php';
+    require 'Controllers/GuestBookController.php';
     //---
     $controller = new GuestBookController($_POST);
     $controller->render();
