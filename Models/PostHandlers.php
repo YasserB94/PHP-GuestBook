@@ -19,7 +19,7 @@ class PostSaver{
         foreach($POST as $key =>$value){
             foreach($requiredData as $requiredField){
                 if($key===$requiredField){
-                    $this->postData[$key]=filter_var(htmlspecialchars($value),FILTER_UNSAFE_RAW);
+                    $this->postData[$key]=htmlspecialchars($value);
                 }
             }
         }
@@ -68,7 +68,7 @@ class PostLoader{
             $message = $value->message;
             $date = $value->date;
             $tempPost = new Post($name,$title,$message,$date);
-            array_push($this->posts,$tempPost);
+            array_unshift($this->posts,$tempPost);
         }
     }
     public function getPosts(){
