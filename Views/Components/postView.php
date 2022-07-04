@@ -9,16 +9,15 @@
           <p class="leading-relaxed mb-6"><?=$post->getMessage()?></p>
 
           <a class="inline-flex items-center">
-            <img alt="testimonial" src="https://source.unsplash.com/random/106x106?sig=1" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center">
+            <img alt="Loading..." src="https://source.unsplash.com/random/106x106?sig=1" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center">
             <span class="flex-grow flex flex-col pl-4">
               <span class="title-font font-medium text-gray-900"><?=$post->getName()?></span>
               <span class="text-gray-500 text-sm"><?=$post->getTitle()?></span>
             </span>
           </a>
-          <div class="w-100 bg-pink-500">
-          <span class="text-sm ml-auto"><?=$post->getDate()?></span>
+          <div class="w-full flex items-end">
+          <span class="text-sm ml-auto  text-gray-500"><?=$post->getDate()?></span>
           </div>
-
         </div>
 
 </div>
