@@ -35,7 +35,7 @@ class GuestBookController
                 require 'Views/Components/postView.php';
             }
         }else{
-            $date = date("Y/m/d");
+            $date = date("h:i:sa"). " " . date("Y/m/d");
             $post = new Post('Dummy','DummyTitle','No Posts have been made yet',$date);
             require 'Views/Components/postView.php';
         }
