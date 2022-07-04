@@ -19,7 +19,7 @@ class PostSaver{
         foreach($POST as $key =>$value){
             foreach($requiredData as $requiredField){
                 if($key===$requiredField){
-                    $this->postData[$key]=htmlspecialchars($value);
+                    $this->postData[$key]=filter_var(htmlspecialchars($value),FILTER_UNSAFE_RAW);
                 }
             }
         }
@@ -27,7 +27,7 @@ class PostSaver{
     }
     
     private function createPostFromData(){
-        $date = date("Y/m/d");
+        $date = date("h:i:sa"). " " . date("Y/m/d");
         $this->post = new Post($this->postData['name'],$this->postData['jobtitle'],$this->postData['message'],$date);
     }
     private function savePostToFile(){
