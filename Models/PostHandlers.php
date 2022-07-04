@@ -27,7 +27,7 @@ class PostSaver{
     }
     
     private function createPostFromData(){
-        $date = new Date("l jS \of F Y h:i:s A");
+        $date = date("Y/m/d");
         $this->post = new Post($this->postData['name'],$this->postData['jobtitle'],$this->postData['message'],$date);
     }
     private function savePostToFile(){

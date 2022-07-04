@@ -10,6 +10,5 @@
     $controller->render();
     //FOOTER---
         require 'Views/footerView.php';
-    //---        
-
+    //---
 ?>

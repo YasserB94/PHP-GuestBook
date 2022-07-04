@@ -2,9 +2,8 @@
         declare(strict_types=1);
 
 Class Post implements JsonSerializable{
-    private string $name,$jobtitle,$message;
-    private Date $date;
-    function __construct(string $name,string $title,string $message,Date $creationDate){
+    private string $name,$jobtitle,$message,$date;
+    function __construct(string $name,string $title,string $message,string $date){
         $this->name = $name;
         $this->jobtitle = $title;
         $this->message = $message;
@@ -19,7 +18,7 @@ Class Post implements JsonSerializable{
     public function getMessage():string{
         return $this->message;
     }
-    public function getDate():Date{
+    public function getDate():string{
         return $this->date;
     }
     public function jsonSerialize():array{
